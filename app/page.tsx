@@ -23,7 +23,7 @@ const Home = () => {
           A 24 Hour AI Hackathon
         </p>
 
-        <div className="h-1 w-2/3 mx-auto bg-black my-8" />
+        <div className="h-1 mx-auto bg-black my-8" />
 
         <div className="flex flex-wrap justify-center gap-6">
           <Link
