@@ -12,7 +12,7 @@ const Home = () => {
   const [showProblems, setShowProblems] = useState(false);
 
   return (
-    <div className="flex flex-col items-center justify-start w-full min-h-screen bg-slate-200 text-black py-12">
+    <div className="flex flex-col items-center justify-start w-full min-h-screen bg-slate-200 text-black py-12 px-4">
       <div className="border-4 border-black rounded-lg max-w-2xl w-full mx-4 p-10 text-center bg-white shadow-[6px_6px_0px_black]">
         <h1
           className={`${strokerFont.className} text-5xl md:text-6xl font-bold tracking-wider`}
