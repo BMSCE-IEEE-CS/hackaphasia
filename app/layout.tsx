@@ -6,7 +6,7 @@ const font = Space_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Hackaphasia",
-  description: "A 24hr AI Hackathon",
+  description: "A 24 Hour AI Hackathon",
 };
 
 export default function RootLayout({
