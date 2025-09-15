@@ -28,7 +28,7 @@ const sdgColors: { [key: string]: string } = {
 
 const ProblemCard = ({ title, description, sdgs }: ProblemCardProps) => {
   return (
-    <div className="border-2 border-black bg-white shadow-[4px_4px_0px_black] rounded-md p-6 max-w-xl w-full">
+    <div className="border-2 border-black bg-white shadow-[4px_4px_0px_black] rounded-md p-6 w-full">
       <h2 className="font-bold text-xl mb-2">{title}</h2>
 
       <p className="text-slate-700 mb-4">{description}</p>
