@@ -11,6 +11,11 @@ const strokerFont = localFont({ src: "./font/stroker.otf" });
 const Home = () => {
   const [showProblems, setShowProblems] = useState(false);
 
+  const now = new Date();
+  const target = new Date(2025, 8, 18, 18, 15);
+
+  const show = now >= target;
+
   return (
     <div className="flex flex-col items-center w-full min-h-screen bg-slate-100 text-black py-12 px-6">
       <div className="border-4 border-black rounded-2xl max-w-3xl w-full mx-4 p-10 text-center bg-white shadow-[8px_8px_0px_black]">
@@ -26,12 +31,6 @@ const Home = () => {
         <div className="h-1 mx-auto bg-black my-8" />
 
         <div className="flex flex-wrap justify-center gap-6">
-          <Link
-            className="px-6 py-3 border-2 border-black rounded-lg bg-white text-black font-semibold shadow-[5px_5px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition"
-            href="/"
-          >
-            Register Team
-          </Link>
           <button
             className="px-6 py-3 border-2 border-black rounded-lg bg-white text-black font-semibold shadow-[5px_5px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition cursor-pointer"
             onClick={() => setShowProblems(!showProblems)}
@@ -49,7 +48,13 @@ const Home = () => {
         </div>
       </div>
 
-      {showProblems && (
+      {!show && showProblems && (
+        <h1 className="mt-10 text-xl text-center text-gray-600">
+          Problem Statements will be released at 6:15 PM IST
+        </h1>
+      )}
+
+      {showProblems && show && (
         <div className="max-w-5xl w-full mt-12">
           <div className="border-4 border-black rounded-lg bg-white shadow-[6px_6px_0px_black] p-8">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">

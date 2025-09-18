@@ -47,9 +47,9 @@ export default function LeaderboardPage() {
           A 24 Hour AI Hackathon
         </p>
         <div className="bg-white rounded-2xl shadow-[6px_6px_0px_black] border-4 border-black w-full mt-4">
-          <div className="flex flex-col items-center py-6 border-b-4 border-black">
+          <div className="flex flex-col items-center py-6 border-b-4 border-black text-center">
             <h1 className="text-4xl font-extrabold mt-2">Live Leaderboard</h1>
-            <p className="text-sm italic text-slate-600 mt-2">
+            <p className="text-sm italic text-slate-600 mt-2 items-center">
               Auto-refreshes every 15 seconds{" "}
               {lastUpdated && <span>- Last updated: {lastUpdated}</span>}
             </p>
