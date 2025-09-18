@@ -6,15 +6,7 @@ export const problemCategories = [
         title: "AI-Powered Early Warning and Management of Crop Diseases",
         description:
           "Build a platform for early crop disease detection and localized guidance, empowering smallholder farmers with sustainable solutions (even in low-connectivity areas) to boost yields, reduce chemical use, and strengthen food security.",
-        tags: [
-          "SDG 1",
-          "SDG 2",
-          "SDG 3",
-          "SDG 9",
-          "SDG 12",
-          "SDG 13",
-          "SDG 15",
-        ],
+        tags: ["SDG 1", "SDG 2", "SDG 3", "SDG 12"],
       },
       {
         title:
@@ -27,15 +19,7 @@ export const problemCategories = [
         title: "AI-Powered Crop Diversification Advisor",
         description:
           "Develop an AI platform that uses demand, soil, and climate data to recommend region-specific crop diversification strategies. The goal is to help farmers reduce risks, increase profits, and support ecological resilience.",
-        tags: [
-          "SDG 1",
-          "SDG 2",
-          "SDG 8",
-          "SDG 9",
-          "SDG 12",
-          "SDG 13",
-          "SDG 13",
-        ],
+        tags: ["SDG 2", "SDG 8", "SDG 9", "SDG 12"],
       },
     ],
   },
