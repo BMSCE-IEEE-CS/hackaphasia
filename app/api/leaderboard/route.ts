@@ -13,7 +13,7 @@ async function getLeaderboardData() {
   const sheets = google.sheets({ version: "v4", auth });
 
   const spreadsheetId = process.env.GOOGLE_SHEET_ID!;
-  const range = "Sheet1!A:D";
+  const range = "Sheet1!A:G";
 
   const response = await sheets.spreadsheets.values.get({
     spreadsheetId,
@@ -25,7 +25,7 @@ async function getLeaderboardData() {
   const teams = rows.slice(1).map((row, idx) => ({
     rank: idx + 1,
     team: row[0],
-    score: Number(row[3]) || 0,
+    score: Number(row[6]) || 0,
   }));
 
   teams.sort((a, b) => b.score - a.score);
