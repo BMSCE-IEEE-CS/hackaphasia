@@ -9,6 +9,7 @@ type Team = {
   rank: number;
   team: string;
   score: number;
+  category: string; 
 };
 
 export default function LeaderboardPage() {
@@ -48,40 +49,59 @@ export default function LeaderboardPage() {
         </p>
         <div className="bg-white rounded-2xl shadow-[6px_6px_0px_black] border-4 border-black w-full mt-4">
           <div className="flex flex-col items-center py-6 border-b-4 border-black text-center">
-            <h1 className="text-4xl font-extrabold mt-2">Live Leaderboard</h1>
-            <p className="text-sm italic text-slate-600 mt-2 items-center">
-              Auto-refreshes every 15 seconds{" "}
-              {lastUpdated && <span>- Last updated: {lastUpdated}</span>}
-            </p>
+            <h1 className="text-4xl font-extrabold mt-2">Leaderboard</h1>
           </div>
 
-          <div className="p-6">
-            {loading ? (
-              <p className="text-center italic text-slate-500">Loading...</p>
-            ) : teams.length === 0 ? (
-              <p className="text-center italic text-slate-500">
-                No data available
-              </p>
-            ) : (
-              <ul className="space-y-3">
-                {teams
-                  .filter((team) => team.score > 0)
-                  .map((team) => (
-                    <li
-                      key={team.rank}
-                      className="flex items-center justify-between bg-slate-50 border-2 border-black rounded-xl px-4 py-3 hover:translate-x-1 transition-transform"
-                    >
-                      <div className="flex items-center gap-3">
-                        <span className="text-lg font-bold w-8 text-center">
-                          {team.rank}
-                        </span>
+          <div className="flex justify-around mt-4">
+            {/* Healthcare Column */}
+            <div className="w-1/2 text-center">
+              <h2 className="text-2xl font-bold mb-4">Healthcare</h2>
+              {loading ? (
+                <p className="text-center italic text-slate-500">Loading...</p>
+              ) : teams.filter((team) => team.category === "Healthcare").length === 0 ? (
+                <p className="text-center italic text-slate-500">No data available</p>
+              ) : (
+                <ul className="space-y-3">
+                  {teams
+                    .filter((team) => team.category === "Healthcare")
+                    .map((team) => (
+                      <li
+                        key={team.rank}
+                        className="flex items-center justify-between bg-slate-50 border-2 border-black rounded-xl px-4 py-3 hover:translate-x-1 transition-transform"
+                      >
+                        <span className="text-lg font-bold">{team.rank}</span>
                         <span className="font-semibold">{team.team}</span>
-                      </div>
-                      <span className="text-lg font-bold">{team.score}</span>
-                    </li>
-                  ))}
-              </ul>
-            )}
+                        <span className="text-lg font-bold">{team.score}</span>
+                      </li>
+                    ))}
+                </ul>
+              )}
+            </div>
+
+            {/* Agritech Column */}
+            <div className="w-1/2 text-center">
+              <h2 className="text-2xl font-bold mb-4">Agritech</h2>
+              {loading ? (
+                <p className="text-center italic text-slate-500">Loading...</p>
+              ) : teams.filter((team) => team.category === "Agritech").length === 0 ? (
+                <p className="text-center italic text-slate-500">No data available</p>
+              ) : (
+                <ul className="space-y-3">
+                  {teams
+                    .filter((team) => team.category === "Agritech")
+                    .map((team) => (
+                      <li
+                        key={team.rank}
+                        className="flex items-center justify-between bg-slate-50 border-2 border-black rounded-xl px-4 py-3 hover:translate-x-1 transition-transform"
+                      >
+                        <span className="text-lg font-bold">{team.rank}</span>
+                        <span className="font-semibold">{team.team}</span>
+                        <span className="text-lg font-bold">{team.score}</span>
+                      </li>
+                    ))}
+                </ul>
+              )}
+            </div>
           </div>
         </div>
       </div>
