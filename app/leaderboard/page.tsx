@@ -9,20 +9,18 @@ type Team = {
   rank: number;
   team: string;
   score: number;
-  category: string; 
+  category: string;
 };
 
 export default function LeaderboardPage() {
   const [teams, setTeams] = useState<Team[]>([]);
   const [loading, setLoading] = useState(true);
-  const [lastUpdated, setLastUpdated] = useState<string>("");
 
   const fetchData = async () => {
     try {
       const res = await fetch("/api/leaderboard");
       const data = await res.json();
       setTeams(data.teams || []);
-      setLastUpdated(new Date().toLocaleTimeString());
     } catch (err) {
       console.error("Failed to load leaderboard", err);
     } finally {
@@ -58,10 +56,13 @@ export default function LeaderboardPage() {
               <h2 className="text-2xl font-bold mb-4">Healthcare</h2>
               {loading ? (
                 <p className="text-center italic text-slate-500">Loading...</p>
-              ) : teams.filter((team) => team.category === "Healthcare").length === 0 ? (
-                <p className="text-center italic text-slate-500">No data available</p>
+              ) : teams.filter((team) => team.category === "Healthcare")
+                  .length === 0 ? (
+                <p className="text-center italic text-slate-500">
+                  No data available
+                </p>
               ) : (
-                <ul className="space-y-3">
+                <ul className="space-y-3 m-2">
                   {teams
                     .filter((team) => team.category === "Healthcare")
                     .map((team) => (
@@ -83,10 +84,13 @@ export default function LeaderboardPage() {
               <h2 className="text-2xl font-bold mb-4">Agritech</h2>
               {loading ? (
                 <p className="text-center italic text-slate-500">Loading...</p>
-              ) : teams.filter((team) => team.category === "Agritech").length === 0 ? (
-                <p className="text-center italic text-slate-500">No data available</p>
+              ) : teams.filter((team) => team.category === "Agritech")
+                  .length === 0 ? (
+                <p className="text-center italic text-slate-500">
+                  No data available
+                </p>
               ) : (
-                <ul className="space-y-3">
+                <ul className="space-y-3 m-2">
                   {teams
                     .filter((team) => team.category === "Agritech")
                     .map((team) => (

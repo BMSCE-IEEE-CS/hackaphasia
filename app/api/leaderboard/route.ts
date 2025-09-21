@@ -1,5 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
 
@@ -16,9 +14,7 @@ async function getLeaderboardData() {
 
   const spreadsheetId = process.env.GOOGLE_SHEET_ID!;
 
-  console.log("Spreadsheet ID:", spreadsheetId);
-
-  const range = "Sheet1!A:D"; 
+  const range = "Sheet1!A:D";
 
   const response = await sheets.spreadsheets.values.get({
     spreadsheetId,
@@ -34,7 +30,6 @@ async function getLeaderboardData() {
     category: "Healthcare",
   }));
 
- 
   const agritechTeams = rows.slice(1).map((row, idx) => ({
     rank: idx + 1,
     team: row[2], // Column C Agritech Team Name
